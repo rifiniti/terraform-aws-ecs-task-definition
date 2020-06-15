@@ -1,6 +1,7 @@
 package test
 
 import (
+	"fmt"
 	"io/ioutil"
 	"strings"
 	"testing"
@@ -43,5 +44,6 @@ func TestMultipleContainerDefinitions(t *testing.T) {
 	}
 	expected := minify(string(b))
 	actual := minify(terraform.Output(t, options, "container_definitions"))
+	fmt.Println(actual)
 	assert.Equal(t, expected, actual)
 }
